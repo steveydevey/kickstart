@@ -1,6 +1,6 @@
 <network>
   <name>os_mgmt</name>
-  <uuid>fc9483ae-0fed-46d8-b033-a84956c67e65</uuid>
+  <uuid>02690f6b-8c4f-414f-aea2-e4ea2453bb52</uuid>
   <forward mode='bridge' />
   <bridge name='brmgmt' />
 </network>

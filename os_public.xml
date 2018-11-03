@@ -1,0 +1,7 @@
+<network>
+  <name>os_public</name>
+  <uuid>c6b67a9f-5e58-4ba8-9a3d-3dc3fbc55068</uuid>
+  <forward mode='bridge' />
+  <bridge name='brpublic' />
+</network>
+

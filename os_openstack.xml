@@ -1,0 +1,7 @@
+<network>
+  <name>os_openstack</name>
+  <uuid>fdd6e079-274f-4d81-a582-383a0befcbc1</uuid>
+  <forward mode='bridge' />
+  <bridge name='bropenstack' />
+</network>
+

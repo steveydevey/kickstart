@@ -2,17 +2,9 @@
 
 virt-install notes
 
-kickstart:
- --extra-args "ks=file:/root/kvm/kickstart/keystone.ks"
-
---location 'http://mirror.i3d.net/pub/centos/7/os/x86_64/' \
-
---location '/mnt/linux/CentOS-7-x86_64-Minimal-1804.iso' \
---initrd-inject=/root/kvm/kickstart/keystone.ks \
---extra-args 'console=ttyS0,115200n8 serial ks=file:/root/kvm/kickstart/keystone.ks'
-
 basic install with VNC:
 
+```
 virt-install \
 --name keystone \
 --ram 1024 \
@@ -24,14 +16,33 @@ virt-install \
 --graphics vnc,listen=0.0.0.0 --noautoconsole \
 --console pty,target_type=serial \
 --cdrom /iso/CentOS-7-x86_64-Minimal-1804.iso
+```
+
+kickstart attempt stuff:
+```
+--extra-args "ks=file:/root/kvm/kickstart/keystone.ks"
+```
+
+```
+--location 'http://mirror.i3d.net/pub/centos/7/os/x86_64/' \
+```
+
+```
+--location '/mnt/linux/CentOS-7-x86_64-Minimal-1804.iso' \
+--initrd-inject=/root/kvm/kickstart/keystone.ks \
+--extra-args 'console=ttyS0,115200n8 serial ks=file:/root/kvm/kickstart/keystone.ks'
+```
 
 
-kickstart attempt:
+*note: initrd inject points to host file system*
 
-virt-install \
---name horizon \
+Working:
+
+```
+virt-install \  
+--name nova \
 --ram 1024 \
---disk path=/vms/horizon.qcow2,size=18 \
+--disk path=/vms/nova.qcow2,size=18 \
 --vcpus 1 \
 --os-type linux \
 --os-variant centos7.0 \
@@ -39,5 +50,6 @@ virt-install \
 --graphics vnc,listen=0.0.0.0 --noautoconsole \
 --console pty,target_type=serial \
 --location /iso/CentOS-7-x86_64-Minimal-1804.iso \
---initrd-inject=/root/kvm/kickstart/horizon.ks \
---extra-args 'console=ttyS0,115200n8 serial ks=file:/root/kvm/kickstart/horizon.ks edd=off'
+--initrd-inject=/nova.ks \
+--extra-args 'console=ttyS0,115200n8 serial ks=file:/nova.ks edd=off nomodeset'
+```

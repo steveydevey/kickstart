@@ -2,6 +2,8 @@
 
 virt-install notes
 
+https://github.com/CentOS/Community-Kickstarts
+
 basic install with VNC:
 
 ```
